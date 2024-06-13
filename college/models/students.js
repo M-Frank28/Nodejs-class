@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
      // Creating Schema
-const studentSchema = new Schema ({
+const studentSchema = new schema ({
 
     firstname:{
         type:String,
