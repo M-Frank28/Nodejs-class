@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 const Student = require('../models/students');
+const studentController = require('../controller/studentController');
 
 //get a list of students from the database
 
@@ -17,18 +18,7 @@ routes.post('/students', (req,res)=> {
 
 
 
-routes.post('/addstudent', async(req,res,next)=>{
-    //console.log(req.body);
-    //res.send(req.body);
-    try{
-        const student = new Student(req.body)
-        const result = await student.save();
-        res.send(result)
-    } catch(error) {
-        console.log(error.message);
-    }
-
-})
+routes.post('/addstudent',studentController.addstudent)
 
 
 
