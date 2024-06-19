@@ -13,5 +13,34 @@ module.exports= {
             console.log(error.message);
         }
     
+    },
+
+    getAllstudents: async (req,res,next)=>{
+        
+        
+        try{
+
+            Student.find({}).then((student)=>{
+                res.send(student)
+            });
+
+        } catch(error) {
+            console.log(error.message);
+
+        }
+
+    },
+
+    updateStudent:async(req,res,next)=> {
+        try{
+            const id = req.params.id;
+            const update = req.body;
+            const options ={new: true}
+            const result = await Student.findByIdAndUpdate(id,update,options)
+             res.send(result);
+        }catch(error){
+    
+            console.log(error.message);
+        }
     }
 }
