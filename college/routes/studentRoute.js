@@ -39,4 +39,6 @@ routes.delete('/students/:id', (req,res)=> {
     res.send({type:'Delete Request'});
 });
 
+routes.delete('/deleteStudent/:id',studentController.deleteStudent)
+
 module.exports = routes;

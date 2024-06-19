@@ -17,7 +17,6 @@ module.exports= {
 
     getAllstudents: async (req,res,next)=>{
         
-        
         try{
 
             Student.find({}).then((student)=>{
@@ -37,6 +36,20 @@ module.exports= {
             const update = req.body;
             const options ={new: true}
             const result = await Student.findByIdAndUpdate(id,update,options)
+             res.send(result);
+        }catch(error){
+    
+            console.log(error.message);
+        }
+    },
+
+
+    deleteStudent:async(req,res,next)=> {
+        try{
+            const id = req.params.id;
+            const update= req.body;
+            const options ={new: true}
+            const result = await Student.findByIdAndDelete(id,update,options)
              res.send(result);
         }catch(error){
     
