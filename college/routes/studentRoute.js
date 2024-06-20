@@ -11,6 +11,16 @@ routes.get('/students', (req,res)=> {
 
 routes.get('/allResults',studentController.getAllstudents)
 
+//get a specific student id
+
+routes.get('/students/:id', (req,res)=> {
+    res.send({type:'Update Request'});
+});
+
+routes.get('/getStudentByid/:id',studentController.getStudentById)
+
+
+
 //add student to the db
 
 routes.post('/students', (req,res)=> {
@@ -40,5 +50,8 @@ routes.delete('/students/:id', (req,res)=> {
 });
 
 routes.delete('/deleteStudent/:id',studentController.deleteStudent)
+
+
+
 
 module.exports = routes;

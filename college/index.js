@@ -2,10 +2,15 @@ require('dotenv').config();
 require('./helpers/init_mongodb');
 const express = require('express');
 const studentroutes = require('./routes/studentRoute');
+
+const authroutes = require('./routes/authRoute');
+
 const app = express();
 app.use(express.json());
 
 app.use(studentroutes);
+
+app.use(authroutes);
 
 app.listen(process.env.port || 4000, function (){
     console.log('Now listening for requests on:http://localhost:4000');
