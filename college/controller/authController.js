@@ -32,8 +32,8 @@ module.exports = {
 registerUser: async(req,res, next)=>{
 
     try{
-        //const {email,password}=rq.body
-        //if(!email || !password)throw createError.BadRequest
+        const {email,password}=rq.body
+        if(!email || !password)throw createError.BadRequest
         
         const result = await authaaSchema.validateAsync(req.body)
 
