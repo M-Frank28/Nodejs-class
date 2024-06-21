@@ -18,5 +18,5 @@ const schema = mongoose.Schema;
 
 });
 
-const Auth = mongoose.model('Auth',authSchema); //create a model that is going to represent our collection in the DB.
-    module.exports = Auth; //here we are exporting this file so that we can use it in other files.
+const User = mongoose.model('User',authSchema); //create a model that is going to represent our collection in the DB.
+    module.exports = User; //here we are exporting this file so that we can use it in other files.
