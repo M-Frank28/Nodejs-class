@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
-
+const bcrypt = require('bcrypt');
    // Creating Schema
    const authSchema = new schema ({
 
@@ -18,5 +18,25 @@ const schema = mongoose.Schema;
 
 });
 
+
+//hashing the pwd before sving in the database
+//this function will be called be4 saving the user
+
+authSchema.pre('save', async function(next){
+
+    try{
+        const salt = await bcrypt.genSalt(10)
+        const hashedPwd = await bcrypt.hash(this.password,salt)
+        this.password =  hashedPwd
+        next()
+    }catch(error){
+        next(error)
+    }
+})
+
+
+
 const User = mongoose.model('User',authSchema); //create a model that is going to represent our collection in the DB.
     module.exports = User; //here we are exporting this file so that we can use it in other files.
+
+  
