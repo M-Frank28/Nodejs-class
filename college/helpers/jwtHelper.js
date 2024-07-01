@@ -5,7 +5,7 @@ const User = require ('../models/authModel');
 
 
 module.exports = {
-signAcccessToken: (UserId)=> {
+signAccessToken: (UserId)=> {
 
     return new Promise((resolve,reject)=>{
 

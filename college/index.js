@@ -1,6 +1,6 @@
 require('dotenv').config();
 require('./helpers/init_mongodb');
-//require('./helpers/validationSchema');
+require('./helpers/validationSchema');
 const express = require('express');
 const studentroutes = require('./routes/studentRoute');
 

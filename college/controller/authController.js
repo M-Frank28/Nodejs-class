@@ -1,7 +1,7 @@
 const User = require ('../models/authModel');
 const createError =require('http-errors')
 const {authaaSchema} = require('../helpers/validationSchema')
-
+const {signAccessToken} = require('../helpers/jwtHelper')
 
 
 
@@ -43,17 +43,16 @@ registerUser: async(req,res, next)=>{
         
         if (Exists) throw createError.Conflict(`${email} is already registered`)
             const user = new User(result)
-        const savedUser = await user.save()
-        //const accessToken = await signAccessToken(savedUser.id)
 
-        res.send({savedUser});
+        const savedUser = await user.save()
+        const accessToken = await signAccessToken(savedUser.id)
+
+        res.send({accessToken});
     }catch (error) {
         if(error.isJoi === true) error.status = 422
         next(error)
     }
 }
-
-
 
 }
 
