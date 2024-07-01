@@ -52,6 +52,16 @@ registerUser: async(req,res, next)=>{
         if(error.isJoi === true) error.status = 422
         next(error)
     }
+},
+
+
+loginUser: async (req,res,next)=>{
+    try{
+        const result = await authaaSchema.validateAsync(req.body)
+        res.send(result)
+    }catch (error){
+        next(error)
+    }
 }
 
 }
