@@ -5,6 +5,7 @@ const {signAccessToken} = require('../helpers/jwtHelper')
 
 
 
+
 module.exports = {
 
  // Adding data to the DB
@@ -39,7 +40,7 @@ registerUser: async(req,res, next)=>{
         
         const result = await authaaSchema.validateAsync(req.body)
 
-        const Exists = await User.findOne({email:email})
+        const Exists = await User.findOne({email:email})    
         
         if (Exists) throw createError.Conflict(`${email} is already registered`)
             const user = new User(result)
@@ -58,13 +59,27 @@ registerUser: async(req,res, next)=>{
 loginUser: async (req,res,next)=>{
     try{
         const result = await authaaSchema.validateAsync(req.body)
-        res.send(result)
+        const user = await User.findOne({email:result.email})
+        if(!user) throw createError.NotFound('User not registered')
+
+            //matching the pasword
+            const isMatch = await user.isValidPassword(result.password)
+            if(!isMatch) throw createError.Unauthorized('Username/Password not valid')
+
+                //if password match then generate token
+                const accessToken = await signAccessToken(user.id) 
+
+
+        //res.send(result)
+        res.send({accessToken})
     }catch (error){
+        if (error.isJoi === true)
+            return next(createError.BadRequest('Invalid username/password'))
         next(error)
     }
 }
 
-}
+};
 
 
 
