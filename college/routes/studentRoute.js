@@ -3,13 +3,15 @@ const routes = express.Router();
 const Student = require('../models/students');
 const studentController = require('../controller/studentController');
 
+const {verifyAccessToken} = require ('../helpers/jwtHelper')
+
 //get a list of students from the database
 
 routes.get('/students', (req,res)=> {
     res.send({type:'Get Request Done'});
 });
 
-routes.get('/allResults',studentController.getAllstudents)
+routes.get('/allResults',verifyAccessToken,studentController.getAllstudents)
 
 //get a specific student id
 
