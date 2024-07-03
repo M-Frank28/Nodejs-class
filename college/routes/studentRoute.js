@@ -19,7 +19,7 @@ routes.get('/students/:id', (req,res)=> {
     res.send({type:'Update Request'});
 });
 
-routes.get('/getStudentByid/:id',studentController.getStudentById)
+routes.get('/getStudentByid/:id',verifyAccessToken,studentController.getStudentById)
 
 
 
@@ -31,7 +31,7 @@ routes.post('/students', (req,res)=> {
 
 
 
-routes.post('/addstudent',studentController.addstudent)
+routes.post('/addstudent',verifyAccessToken,studentController.addstudent)
 
 
 
@@ -42,7 +42,7 @@ routes.put('/students/:id', (req,res)=> {
     res.send({type:'Update Request'});
 });
 
-routes.patch('/updateStudent/:id',studentController.updateStudent)
+routes.patch('/updateStudent/:id',verifyAccessToken,studentController.updateStudent)
 
 
 //delete student to the db
@@ -51,7 +51,7 @@ routes.delete('/students/:id', (req,res)=> {
     res.send({type:'Delete Request'});
 });
 
-routes.delete('/deleteStudent/:id',studentController.deleteStudent)
+routes.delete('/deleteStudent/:id',verifyAccessToken,studentController.deleteStudent)
 
 
 
