@@ -1,0 +1,98 @@
+/*body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+*{
+margin: 0px;
+font-family: "Quicksand";
+color: #333;
+}
+
+.navbar{
+
+padding: 20px;
+display: flex;
+align-items: center;
+max-width: 600px;
+margin: 0 auto;
+border-bottom: 1px solid #f2f2f2;
+}
+
+.navbar h2{
+  color: blueviolet;
+}
+
+.navbar .link{
+  margin-left:auto;
+}
+
+.navbar a{
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+
+.navbar a:hover{
+  color: blueviolet;
+}
+
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: left;
+ 
+}
+
+.preview{
+  padding: 10px 16px;
+  margin: 20px 0;
+   border-bottom: solid #f2f2f2;
+   background: rgba(7, 174, 240, 0.582);
+   border-radius: 7px;
+}
+
+.preview:hover{
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.596);
+
+}
+
+.preview h3{
+
+  font-size:  17px;
+  color:  blueviolet;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.preview a{
+  text-decoration: none !important;
+}
+
+
+.detailsBody{
+  background-color: aqua;
+  border-radius:10px;
+  padding: 10px;
+ font-weight: 700;
+ 
+}
+.createHeading{
+
+  font-weight: 700;
+  color:rgb(0, 153, 255);
+
+}
