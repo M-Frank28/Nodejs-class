@@ -6,6 +6,8 @@ const studentroutes = require('./routes/studentRoute');
 
 const authroutes = require('./routes/authRoute');
 
+const cors = require('cors');
+
 const app = express();
 app.use(express.json());
 
@@ -16,6 +18,15 @@ app.use(authroutes);
 app.listen(process.env.port || 4000, function (){
     console.log('Now listening for requests on:http://localhost:4000');
 });
+
+
+app.use(cors({
+    credentials: true, //Alow credentials
+    origin: [
+        'http://localhost:3000',
+        'http://localhost:4000'
+    ]
+}))
 
 //handling 404 error
 app.use((req, res, next)=>{

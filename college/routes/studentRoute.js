@@ -31,7 +31,7 @@ routes.post('/students', (req,res)=> {
 
 
 
-routes.post('/addstudent',verifyAccessToken,studentController.addstudent)
+routes.post('/addstudent',studentController.addstudent)
 
 
 
