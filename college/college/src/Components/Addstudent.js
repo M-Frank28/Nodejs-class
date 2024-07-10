@@ -13,9 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Addstudent = () => {
   
   const [data, setData]= useState({
-    firstname:'',
-    lastname:'',
-    gender:''
+    firstname:' ',
+    lastname:' ',
+    gender:' '
 })
 
 const handleChange = (e) => {
@@ -43,7 +43,7 @@ const saveStudent=(e) => {
   });
 })
 .catch (err => {
-  toast.error('An error occured while adding the ', {
+  toast.error('An error occured while adding the Student ', {
     position : toast.POSITION.TOP_RIGHT,
     autoClose: 3000,
   });

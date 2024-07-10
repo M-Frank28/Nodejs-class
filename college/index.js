@@ -5,10 +5,20 @@ const express = require('express');
 const studentroutes = require('./routes/studentRoute');
 
 const authroutes = require('./routes/authRoute');
+const cors = require ('cors')
 
-const cors = require('cors');
+
 
 const app = express();
+
+app.use(cors({
+    credentials: true, //Alow credentials
+    origin : [
+        'http://localhost:3000',
+       'http://localhost:4000'
+    ]
+}))
+
 app.use(express.json());
 
 app.use(studentroutes);
@@ -20,13 +30,7 @@ app.listen(process.env.port || 4000, function (){
 });
 
 
-app.use(cors({
-    credentials: true, //Alow credentials
-    origin: [
-        'http://localhost:3000',
-        'http://localhost:4000'
-    ]
-}))
+
 
 //handling 404 error
 app.use((req, res, next)=>{
