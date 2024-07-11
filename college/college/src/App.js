@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Create from './Components/Create';
 import Login from './Components/Login';
 import Addstudent from './Components/Addstudent'
+import AllStudents from './Components/AllStudents';
 
 function App() {
   
@@ -33,6 +34,11 @@ function App() {
 
 <Route  path="/Addstudent">
 <Addstudent/>
+</Route>
+
+
+<Route  path="/allStudents">
+<AllStudents/>
 </Route>
 
 

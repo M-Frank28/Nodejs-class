@@ -13,6 +13,7 @@ return(
     <Link to="/Create">Register</Link>
     <Link to="/Login">Login</Link>
     <Link to="/Addstudent">Add New Student</Link>
+    <Link to="/allStudents">Get All Students</Link>
 
    </div>
 

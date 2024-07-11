@@ -11,7 +11,7 @@ routes.get('/students', (req,res)=> {
     res.send({type:'Get Request Done'});
 });
 
-routes.get('/allResults',verifyAccessToken,studentController.getAllstudents)
+routes.get('/allResults',studentController.getAllstudents)
 
 //get a specific student id
 
