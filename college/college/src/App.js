@@ -6,6 +6,7 @@ import Create from './Components/Create';
 import Login from './Components/Login';
 import Addstudent from './Components/Addstudent'
 import AllStudents from './Components/AllStudents';
+import UpdateStudent from './Components/UpdateStudent';
 
 function App() {
   
@@ -41,6 +42,8 @@ function App() {
 <AllStudents/>
 </Route>
 
+
+<Route  path="/UpdateStudent/:student_id" element={<UpdateStudent/>}/>
 
 
 
