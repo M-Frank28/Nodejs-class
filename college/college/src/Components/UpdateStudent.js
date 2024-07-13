@@ -5,6 +5,11 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
+//import Form from 'react-bootstrap/Form';
+import {Form} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+
 
 
 const UpdateStudent =() => {
@@ -105,79 +110,70 @@ const UpdateStudent = (e) => {
 return (
 
 
- <div>
 
+  <div>
 
 {loading && <ScaleLoader color ="#3607B7" loading={loading}  css={spinnerOverride} size={150}/>}
 
-<Form onSubmit={UpdateStudent }>
+  <Form onSubmit={UpdateStudent }>
 
-  <h4 className="mb3">Update Student</h4>
+  <h3 className="createHeading"> UpdateStudent  </h3>
 
-  <Form.Group className="mb-3" controlId="student_id">
+    <Form.Group className="mb-3" controlId="student_id">
 
-<Form.Group className="mb-3" controlId="student_id">
+      <Form.Label>Firstname:</Form.Label>
+      <Form.Control  type="input"  required onChange={handleChange}
+      
+      value={data.student_id}
+    name="student_id"
+    disabled="disabled"
+     hidden
+      
+      
+      
+      />
 
-  {/* <form.Label> student Id: </form.Label>*/ }
-  <Form.Control
- type="input"
- required onChange={handleChange}
- value={data.student_id}
- name="student_id"
- disabled="disabled"
- hidden
-   />
-</Form.Group>
-<Form.Group className="mb-3" controlId="unit">
-<Form.Label>Student Firstname: </Form.Label>
-<Form.Control
-type="input"
+
+      
+    </Form.Group>
+
+
+    <Form.Group className="mb-3" controlId="unit">
+      <Form.Label>Lastname:</Form.Label>
+      <Form.Control    
+      
+      type="input"
 placeholder="Enter Student Name"
-required onChange={handleChange}
+required 
+onChange={handleChange}
 value={data.student_lastname}
 name="student_lastname"
 hidden
-/>
-</Form.Group>
+      
+      
+      />
+    </Form.Group>
 
 
-<FormControl
-
-type="input"
-placeholder="Enter Student Name"
-required onChange={handleChange}
-value={data.student_lastname}
-name="student_lastname"
-hidden
-/>
-</Form.Group>
-
-
-<Button variant="primary" type="submit">
-  Update Customer
-</Button>
-
-<ToastContainer/>
-
-
-
-  </Form.Control>
+    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+    <Form.Select  name="gender" value={data.student_gender}  onChange={handleChange}>
+    <option>--Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+    </Form.Select>
+    </Form.Group>
 
 
 
 
+    
 
+    <Button variant="primary" type="submit"> Update Student </Button>
+    
+    <ToastContainer/>
 
-
-</Form.Group>
-
-
-</Form>
-
-<ToastContainer/>
- </div>
-
-
+  </Form>
+</div>
 
 
 
@@ -187,21 +183,6 @@ hidden
 
 
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 export default UpdateStudent;
