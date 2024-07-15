@@ -11,21 +11,26 @@ import {Button} from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 
+//import {ScaleLoader} from 'react-spinners';
+//import {spinnerOverride} from '../spinnerStyles'
+
+
 
 const UpdateStudent =() => {
 
-    const{student_id} = useParams();
+    const {_id} = useParams();
     //const baseURL = process.env.REACT_AAPP_BASE_URL
-    const[loading, setLoading] = useState(false);
+    //const [loading, setLoading] = useState(false);
 
 
 
     useEffect(() => {
         //const token = sessionStorage.getItem("accessToken")
         //console.log("student_id", student_id);
+
        //setLoading(true);
 
-       axios.get(`http://localhost:4000/getStudentByid/:id ${student_id}`,{
+       axios.get(`http://localhost:4000/getStudentByid/${_id}`,{
 
         /*headers:{
           Authorization: `Bearer ${token}`,
@@ -37,10 +42,10 @@ const UpdateStudent =() => {
    
         setData({
         
-            student_id: res.data.student_id,
-            student_firstname: res.data.student_firstname,
-            student_lastname: res.data.student_lastname,
-            student_gender: res.data.student_gender
+            _id: res.data._id,
+            firstname: res.data.firstname,
+            lastname: res.data.lastname,
+            gender: res.data.gender
 
         });
 
@@ -51,19 +56,21 @@ const UpdateStudent =() => {
       });
 
 
-    },[student_id]);
+    },[_id]);
 
 
     const [data, setData] = useState({
-        student_id: '',
-        student_firstname: '',
-        student_lastname: '',
-        student_gender: ''
+        _id: '',
+        firstname: '',
+        lastname: '',
+        gender: ''
     });
 
 const handleChange = (e) => {
     setData({...data, [e.target.name]: e.target.value });
 }
+
+//................................................................
 
 const UpdateStudent = (e) => {
 
@@ -73,7 +80,7 @@ const UpdateStudent = (e) => {
         
        //setLoading(true);
 
-       axios.put(`http://localhost:4000/updateStudent/:id ${student_id}`, data, {
+       axios.patch(`http://localhost:4000/updateStudent/${_id}`, data, {
         /*headers:{
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -99,9 +106,9 @@ const UpdateStudent = (e) => {
               autoClose: 3000,
             });
         
-        }).finally(() => {
+        })/*.finally(() => {
             setLoading(false)
-        })
+        })*/
 
 
 
@@ -113,28 +120,40 @@ return (
 
   <div>
 
-{loading && <ScaleLoader color ="#3607B7" loading={loading}  css={spinnerOverride} size={150}/>}
+
+
+
 
   <Form onSubmit={UpdateStudent }>
 
   <h3 className="createHeading"> UpdateStudent  </h3>
 
+
+  <Form.Group className="mb-3" controlId="student_id">
+
+<Form.Label>id:</Form.Label>
+<Form.Control  type="input"  required
+ placeholder="Enter Student Name"
+
+onChange={handleChange}
+
+value={data._id}
+name="id"
+disabled="disabled"
+hidden/>
+</Form.Group>
+
     <Form.Group className="mb-3" controlId="student_id">
 
       <Form.Label>Firstname:</Form.Label>
-      <Form.Control  type="input"  required onChange={handleChange}
-      
-      value={data.student_id}
-    name="student_id"
-    disabled="disabled"
-     hidden
-      
-      
-      
-      />
+      <Form.Control  type="input"  required
+       placeholder="Enter Student Name"
 
+      onChange={handleChange}
 
-      
+      value={data.firstname}
+    name="firstname"
+     />
     </Form.Group>
 
 
@@ -146,17 +165,15 @@ return (
 placeholder="Enter Student Name"
 required 
 onChange={handleChange}
-value={data.student_lastname}
-name="student_lastname"
-hidden
-      
-      
+value={data.lastname}
+name="lastname"
+ 
       />
     </Form.Group>
 
 
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-    <Form.Select  name="gender" value={data.student_gender}  onChange={handleChange}>
+    <Form.Select  name="gender" value={data.gender}  onChange={handleChange}>
     <option>--Gender</option>
     <option>Male</option>
     <option>Female</option>

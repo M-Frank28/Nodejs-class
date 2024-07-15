@@ -19,7 +19,7 @@ routes.get('/students/:id', (req,res)=> {
     res.send({type:'Update Request'});
 });
 
-routes.get('/getStudentByid/:id',verifyAccessToken,studentController.getStudentById)
+routes.get('/getStudentByid/:id',studentController.getStudentById)
 
 
 

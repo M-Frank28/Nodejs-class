@@ -78,7 +78,7 @@ return (
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Link to ={`/UpdateStudent/${r.student_id}` } className="dropdown-item"> 
+        <Link to ={`/UpdateStudent/${r._id}` } className="dropdown-item"> 
         Edit Student
         </Link>
       </Dropdown.Menu>

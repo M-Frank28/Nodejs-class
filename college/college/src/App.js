@@ -42,9 +42,10 @@ function App() {
 <AllStudents/>
 </Route>
 
+<Route  path="/UpdateStudent/" >
 
-<Route  path="/UpdateStudent/:student_id" element={<UpdateStudent/>}/>
-
+<UpdateStudent/>
+</Route>
 
 
 
