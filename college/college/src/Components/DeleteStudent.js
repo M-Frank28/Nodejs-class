@@ -16,7 +16,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-const UpdateStudent =() => {
+const DeleteStudent =() => {
 
     const { id }  = useParams();
     //const baseURL = process.env.REACT_AAPP_BASE_URL
@@ -74,7 +74,7 @@ const handleChange = (e) => {
 
 //................................................................
 
-const UpdateStudent = (e) => {
+const DeleteStudent = (e) => {
 
     e.preventDefault()
 
@@ -82,7 +82,7 @@ const UpdateStudent = (e) => {
         
        //setLoading(true);
 
-       axios.patch(`http://localhost:4000/updateStudent/${id}`, data, {
+       axios.delete(`http://localhost:4000/deleteStudent/${id}`, data, {
         /*headers:{
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const UpdateStudent = (e) => {
        //.then(res=>console.log(res));
        .then(res => {
 
-        toast.success('Student updated successfully',{
+        toast.success('Student Deleted successfully',{
             position : toast.POSITION.TOP_RIGHT,
             autoClose: 3000,
         })
@@ -103,7 +103,7 @@ const UpdateStudent = (e) => {
 
 
         .catch (err => {
-            toast.error('An error occured while updating the Student ', {
+            toast.error('An error occured while Deleting the Student ', {
               position : toast.POSITION.TOP_RIGHT,
               autoClose: 3000,
             });
@@ -126,9 +126,9 @@ return (
 
 
 
-  <Form onSubmit={UpdateStudent }>
+  <Form onSubmit={DeleteStudent}>
 
-  <h3 className="createHeading"> Update Student  </h3>
+  <h3 className="createHeading"> Delete Student  </h3>
 
 
   <Form.Group className="mb-3" controlId="student_id">
@@ -156,6 +156,7 @@ hidden
 
       value={data.firstname}
     name="firstname"
+    disabled="disabled"
      />
     </Form.Group>
 
@@ -170,25 +171,19 @@ required
 onChange={handleChange}
 value={data.lastname}
 name="lastname"
+disabled="disabled"
  
       />
     </Form.Group>
 
 
-    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-    <Form.Select  name="gender" value={data.gender}  onChange={handleChange}>
-    <option>--Gender</option>
-    <option>Male</option>
-    <option>Female</option>
-    </Form.Select>
-    </Form.Group>
 
 
 
 
     
 
-    <Button variant="primary" type="submit"> Update Student </Button>
+    <Button variant="primary" type="submit"> Delete Student </Button>
     
     <ToastContainer/>
 
@@ -205,4 +200,4 @@ name="lastname"
 )
 }
 
-export default UpdateStudent;
+export default DeleteStudent;

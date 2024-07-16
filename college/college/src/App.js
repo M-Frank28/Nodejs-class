@@ -7,6 +7,7 @@ import Login from './Components/Login';
 import Addstudent from './Components/Addstudent'
 import AllStudents from './Components/AllStudents';
 import UpdateStudent from './Components/UpdateStudent';
+import DeleteStudent from './Components/DeleteStudent';
 
 function App() {
   
@@ -45,6 +46,12 @@ function App() {
 <Route  path="/UpdateStudent/:id" >
 
 <UpdateStudent/>
+</Route>
+
+
+<Route  path="/deleteStudent/:id" >
+
+<DeleteStudent/>
 </Route>
 
 

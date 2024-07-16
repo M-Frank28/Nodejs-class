@@ -45,6 +45,8 @@ routes.put('/students/:id', (req,res)=> {
 routes.patch('/updateStudent/:id',studentController.updateStudent)
 
 
+
+
 //delete student to the db
 
 routes.delete('/students/:id', (req,res)=> {
@@ -52,6 +54,12 @@ routes.delete('/students/:id', (req,res)=> {
 });
 
 routes.delete('/deleteStudent/:id',verifyAccessToken,studentController.deleteStudent)
+
+
+
+
+
+
 
 
 

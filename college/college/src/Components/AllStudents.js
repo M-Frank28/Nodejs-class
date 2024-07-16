@@ -74,7 +74,7 @@ return (
 
   <Dropdown>
       <Dropdown.Toggle variant="default" id="dropdown-basic" size="sm">
-        Perform Actions
+        Update Student
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
@@ -85,6 +85,23 @@ return (
 
 
     </Dropdown>
+
+
+
+    <Dropdown>
+      <Dropdown.Toggle variant="default" id="dropdown-basic" size="sm">
+        Delete Student
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Link to ={`/DeleteStudent/${r._id}` } className="dropdown-item"> 
+        Delete Student
+        </Link>
+      </Dropdown.Menu>
+
+
+    </Dropdown>
+
 
 
 
