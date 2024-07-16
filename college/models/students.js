@@ -4,6 +4,9 @@ const schema = mongoose.Schema;
      // Creating Schema
 const studentSchema = new schema ({
 
+
+
+
     firstname:{
         type:String,
         required: [true,'Firstname is required']

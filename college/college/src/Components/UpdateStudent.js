@@ -18,19 +18,21 @@ import { useParams } from 'react-router-dom';
 
 const UpdateStudent =() => {
 
-    const {_id} = useParams();
+    const { id }  = useParams();
     //const baseURL = process.env.REACT_AAPP_BASE_URL
     //const [loading, setLoading] = useState(false);
 
 
 
     useEffect(() => {
+
+      //console.log('id',id)
         //const token = sessionStorage.getItem("accessToken")
         //console.log("student_id", student_id);
 
        //setLoading(true);
 
-       axios.get(`http://localhost:4000/getStudentByid/${_id}`,{
+       axios.get(`http://localhost:4000/getStudentByid/${id}`,{
 
         /*headers:{
           Authorization: `Bearer ${token}`,
@@ -42,7 +44,7 @@ const UpdateStudent =() => {
    
         setData({
         
-            _id: res.data._id,
+            id: res.data._id,
             firstname: res.data.firstname,
             lastname: res.data.lastname,
             gender: res.data.gender
@@ -50,20 +52,20 @@ const UpdateStudent =() => {
         });
 
         /*.catch(err =>console.log(err)).finally(() =>{
-
-        });*/
+          setLoading(false);
+       });*/
 
       });
 
 
-    },[_id]);
+    },[id]);
 
 
     const [data, setData] = useState({
-        _id: '',
-        firstname: '',
-        lastname: '',
-        gender: ''
+        _id: "",
+        firstname: "",
+        lastname: "",
+        gender: ""
     });
 
 const handleChange = (e) => {
@@ -80,7 +82,7 @@ const UpdateStudent = (e) => {
         
        //setLoading(true);
 
-       axios.patch(`http://localhost:4000/updateStudent/${_id}`, data, {
+       axios.patch(`http://localhost:4000/updateStudent/${id}`, data, {
         /*headers:{
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',

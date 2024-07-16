@@ -42,7 +42,7 @@ function App() {
 <AllStudents/>
 </Route>
 
-<Route  path="/UpdateStudent/" >
+<Route  path="/UpdateStudent/:id" >
 
 <UpdateStudent/>
 </Route>

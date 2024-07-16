@@ -1,5 +1,7 @@
 const Student = require('../models/students');
-const createError =require('http-errors')
+const createError =require('http-errors');
+const mongoose = require('mongoose');
+
 
 module.exports= {
 
@@ -87,7 +89,7 @@ try {
                 return next(createError(400, "Invalid student id"));
             }
         }
-        next(error);
+        //next(error);
     },
 
 // deleting data FROM  the DB
