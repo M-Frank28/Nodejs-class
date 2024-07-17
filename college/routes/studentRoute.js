@@ -3,7 +3,7 @@ const routes = express.Router();
 const Student = require('../models/students');
 const studentController = require('../controller/studentController');
 
-const {verifyAccessToken} = require ('../helpers/jwtHelper')
+//const {verifyAccessToken} = require ('../helpers/jwtHelper')verifyAccessToken,
 
 //get a list of students from the database
 
@@ -53,7 +53,7 @@ routes.delete('/students/:id', (req,res)=> {
     res.send({type:'Delete Request'});
 });
 
-routes.delete('/deleteStudent/:id',verifyAccessToken,studentController.deleteStudent)
+routes.delete('/deleteStudent/:id',studentController.deleteStudent)
 
 
 

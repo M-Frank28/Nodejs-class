@@ -179,11 +179,9 @@ disabled="disabled"
 
 
 
-
-
     
 
-    <Button variant="primary" type="submit"> Delete Student </Button>
+    <Button variant="danger" type="submit"> Delete Student </Button>
     
     <ToastContainer/>
 

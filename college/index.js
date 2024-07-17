@@ -6,10 +6,32 @@ const studentroutes = require('./routes/studentRoute');
 
 const authroutes = require('./routes/authRoute');
 const cors = require ('cors')
+const helmet = require('helmet')
+const rateLimit = require('express-rate-limit')
 
 
 
 const app = express();
+
+
+app.use(helmet())
+//limit request from same ip
+
+const limiter=rateLimit({
+
+max: 100,
+windowMs: 60 * 60 * 1000,
+message : 'Too many requests from this IP, pls  try again an hour!'
+
+})
+app.use('/api', limiter)
+
+
+
+
+
+
+
 
 app.use(cors({
     credentials: true, //Alow credentials
