@@ -11,7 +11,7 @@ routes.get('/students', (req,res)=> {
     res.send({type:'Get Request Done'});
 });
 
-routes.get('/allResults',studentController.getAllstudents)
+routes.get('/api/allResults',studentController.getAllstudents)
 
 //get a specific student id
 
@@ -19,7 +19,7 @@ routes.get('/students/:id', (req,res)=> {
     res.send({type:'Update Request'});
 });
 
-routes.get('/getStudentByid/:id',studentController.getStudentById)
+routes.get('/api/getStudentByid/:id',studentController.getStudentById)
 
 
 
@@ -31,7 +31,7 @@ routes.post('/students', (req,res)=> {
 
 
 
-routes.post('/addstudent',studentController.addstudent)
+routes.post('/api/addstudent',studentController.addstudent)
 
 
 
@@ -42,7 +42,7 @@ routes.put('/students/:id', (req,res)=> {
     res.send({type:'Update Request'});
 });
 
-routes.patch('/updateStudent/:id',studentController.updateStudent)
+routes.patch('/api/updateStudent/:id',studentController.updateStudent)
 
 
 
@@ -53,7 +53,7 @@ routes.delete('/students/:id', (req,res)=> {
     res.send({type:'Delete Request'});
 });
 
-routes.delete('/deleteStudent/:id',studentController.deleteStudent)
+routes.delete('/api/deleteStudent/:id',studentController.deleteStudent)
 
 
 

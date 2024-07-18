@@ -9,6 +9,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import {Form} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import {useHistory} from 'react-router-dom'
+
 
 
 //import {ScaleLoader} from 'react-spinners';
@@ -17,6 +20,8 @@ import { useParams } from 'react-router-dom';
 
 
 const DeleteStudent =() => {
+
+  const history = useHistory();
 
     const { id }  = useParams();
     //const baseURL = process.env.REACT_AAPP_BASE_URL
@@ -32,7 +37,7 @@ const DeleteStudent =() => {
 
        //setLoading(true);
 
-       axios.get(`http://localhost:4000/getStudentByid/${id}`,{
+       axios.get(`http://localhost:4000/api/getStudentByid/${id}`,{
 
         /*headers:{
           Authorization: `Bearer ${token}`,
@@ -82,15 +87,19 @@ const DeleteStudent = (e) => {
         
        //setLoading(true);
 
-       axios.delete(`http://localhost:4000/deleteStudent/${id}`, data, {
+       axios.delete(`http://localhost:4000/api/deleteStudent/${id}`, data, {
         /*headers:{
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },*/
        })
+  
 
        //.then(res=>console.log(res));
        .then(res => {
+
+        alert("Student deleted")
+        history.push('/AllStudents')
 
         toast.success('Student Deleted successfully',{
             position : toast.POSITION.TOP_RIGHT,
@@ -177,11 +186,13 @@ disabled="disabled"
     </Form.Group>
 
 
-
+    <Link to="/AllStudents">
+    <Button variant="danger" type="submit" onClick={DeleteStudent}> Delete Student </Button>
+</Link>
 
     
 
-    <Button variant="danger" type="submit"> Delete Student </Button>
+  
     
     <ToastContainer/>
 

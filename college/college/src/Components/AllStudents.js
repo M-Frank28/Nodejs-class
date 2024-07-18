@@ -19,7 +19,7 @@ useEffect(()=> {
 //const token = sessionStorage.getItem("accessToken")
  //setLoading(true);
 
- axios.get(`http://localhost:4000/allResults`,{
+ axios.get(`http://localhost:4000/api/allResults`,{
 
     /*headers:{
       Authorization: `Bearer ${token}`,

@@ -26,7 +26,7 @@ const registerUser=(e) => {
 
   //const token = sessionStorage.getItem("access_token")
 
-  axios.post('http://localhost:4000/registerUser',data,{
+  axios.post('http://localhost:4000/api/registerUser',data,{
 
     /*headers:{
       Authorization: `Bearer ${token}`,

@@ -32,7 +32,7 @@ const UpdateStudent =() => {
 
        //setLoading(true);
 
-       axios.get(`http://localhost:4000/getStudentByid/${id}`,{
+       axios.get(`http://localhost:4000/api/getStudentByid/${id}`,{
 
         /*headers:{
           Authorization: `Bearer ${token}`,
@@ -82,7 +82,7 @@ const UpdateStudent = (e) => {
         
        //setLoading(true);
 
-       axios.patch(`http://localhost:4000/updateStudent/${id}`, data, {
+       axios.patch(`http://localhost:4000/api/updateStudent/${id}`, data, {
         /*headers:{
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',

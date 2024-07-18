@@ -27,7 +27,7 @@ const saveStudent=(e) => {
 
   //const token = sessionStorage.getItem("access_token")
 
-  axios.post('http://localhost:4000/addstudent',data,{
+  axios.post('http://localhost:4000/api/addstudent',data,{
 
     /*headers:{
       Authorization: `Bearer ${token}`,
