@@ -1,8 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 require ('dotenv').config();
+require('./models/indexStart')
 
 const app = express()
+
+//app.use(indexStart);
 
 var corOptions = {
 

@@ -1,4 +1,4 @@
-const dbConfig = requre('../config/dbConfig')
+const dbConfig = require('../config/dbConfig')
 const {Sequelize, DataTypes} = require('sequelize')
 
 const sequelize = new Sequelize (
@@ -23,9 +23,9 @@ sequelize.authenticate()
 
 const db ={}
 db.Sequelize = Sequelize
-db.Sequelize = Sequelize
+db.sequelize = sequelize
 
-db,students = require('./studentModel.js')(sequelize, DataTypes)
+db.students = require('./studentModel.js')(sequelize, DataTypes)
 
 db.sequelize.sync({force: false})
 .then(()=>{
