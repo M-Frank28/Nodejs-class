@@ -11,11 +11,6 @@ const app = express()
 
 
 
-
-
-
-
-
 app.use(helmet())
 //limit request from same ip
 
@@ -47,7 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
-app.use('http://localhost:5000/api/Student/addStudent', studentRoute)
+app.use('/api/Student', studentRoute)
 
 
 
