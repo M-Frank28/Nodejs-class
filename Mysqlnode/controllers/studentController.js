@@ -16,7 +16,8 @@ module.exports= {
               
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
-                gender: req.body.gender
+                gender: req.body.gender,
+                course_id:req.body.course_id
 
             }
 
