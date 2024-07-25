@@ -9,6 +9,10 @@ routes.get('/getStudentByid/:id',studentController. getStudentById)
 //routes.get('/api/getStudentByid/:id',studentController.getStudentById)
 routes.get('/getAllStudents',studentController.getStudents )
 
+//update students in the DB
+
+//routes.patch('updateStudent/:id',studentController.updateStudent)
+
 
 
 module.exports = routes

@@ -36,6 +36,7 @@ app.use(cors(corOptions));
 
 const studentRoute = require ('./routes/studentRoutes');
 const courseRoute = require ('./routes/courseRoutes');
+const authRoute = require ('./routes/authRoute')
 
 
 app.use(express.json());
@@ -44,7 +45,8 @@ app.use(express.urlencoded({extended: true}));
 
 
 app.use('/api/Student', studentRoute),
-app.use('/api/Course', courseRoute)
+app.use('/api/Course', courseRoute),
+app.use('/api/User', authRoute)
 
 
 const PORT = process.env.PORT || 5000

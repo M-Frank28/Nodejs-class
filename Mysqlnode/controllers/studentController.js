@@ -4,7 +4,7 @@ const createError = require('http-errors');
 //use the model 
 
 const Student = db.students
-//const Course = db.courses
+const Course = db.courses
 
 module.exports= {
 
@@ -52,17 +52,39 @@ module.exports= {
         }
 
     },
+ //get all students with the course they are doing
+
+
+ getStudents : async (req,res,next) => {
+    try {
+        let allStudents = await Student.findAll({
+            include: [{model: Course, attributes:['coursename']}]
+        })
+        res.status(200).send(allStudents)
+    }catch (error) {
+        next(error)
+    }
+}
+
+
+
+
 
     //get all students
 
-    getStudents : async (req,res,next) => {
+    /*getStudents : async (req,res,next) => {
         try {
             let allStudents = await Student.findAll()
             res.status(200).send(allStudents)
         }catch (error) {
             next(error)
         }
-    },
+    },*/
+
+
+
+
+    //Update studendt
 
 
 
